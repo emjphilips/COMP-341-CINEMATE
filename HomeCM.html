@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cinemate</title>
+        <link rel="stylesheet" href="StyleCM.css">
+    </head>
+    <body>
+        <h1 title="Brand">Cinemate</h1>
+        <Section class="Streamplat">
+            <h2>Choose your streaming platform:</h2>
+            <p>Select the platform you want to launch on your device:</p>
+            <div id="platforms">
+                <span class="platform" data-platform="netflix">Netflix</span>
+                <span class="platform" data-platform="hulu">Hulu</span>
+                <span class="platform" data-platform="disneyplus">Disney+</span>
+                <span class="platform" data-platform="primevideo">Prime Video</span>
+                <span class="platform" data-platform="youtube">YouTube</span>
+            </div>
+            <script>
+                const platforms = document.getElementById("platforms").getElementsByClassName("platform");
+                
+                for (let i = 0; i < platforms.length; i++) {
+                platforms[i].addEventListener("click", function() {
+                    // Simulate platform selection (replace with logic to interact with your Roku)
+                    for (let j = 0; j < platforms.length; j++) {
+                    platforms[j].classList.remove("selected");
+                    }
+                    this.classList.add("selected");
+                    alert("Selected platform: " + this.dataset.platform); // Alert for demonstration
+                });
+                }
+            </script>
+            </Section>
+        <section class="stream">
+            <h3>Movies that friends have recommended for you!</h3>
+            <div class="rectangle-container">
+                <a href="MovieCM.html">
+                    <div class="rectangle"></div>
+                </a>
+                <div class="rectangle"></div>
+                <div class="rectangle"></div>
+                <div class="rectangle"></div>
+                <div class="rectangle"></div>
+            </div>
+            <h3>Popular Movies on MAX</h3>
+            <div class="rectangle-container">
+                <div class="rectangle"></div>
+                <div class="rectangle"></div>
+                <div class="rectangle"></div>
+                <div class="rectangle"></div>
+                <div class="rectangle"></div>
+            </div>
+            <h3>Popular Movies on Netflix</h3>
+            <div class="rectangle-container">
+                <div class="rectangle"></div>
+                <div class="rectangle"></div>
+                <div class="rectangle"></div>
+                <div class="rectangle"></div>
+                <div class="rectangle"></div>
+            </div>
+            <h3>Popular Movies on HULU</h3>
+            <div class="rectangle-container">
+                <div class="rectangle"></div>
+                <div class="rectangle"></div>
+                <div class="rectangle"></div>
+                <div class="rectangle"></div>
+                <div class="rectangle"></div>
+            </div>
+            <h3>Popular Movies on Disney+</h3>
+            <div class="rectangle-container">
+                <div class="rectangle"></div>
+                <div class="rectangle"></div>
+                <div class="rectangle"></div>
+                <div class="rectangle"></div>
+                <div class="rectangle"></div>
+            </div>
+        </section>
+    </body>
+    <footer id="contactUs">
+        <div class="contact">
+            <img src="">
+            <div class="info">
+                <h2>Contact Us</h2>
+                <ul>
+                    <li>Number: +1 (773) - 508 -****</li>
+                    <li>Email: CINAMATE@luc.edu</li>
+                </ul>     
+            </div>
+            <div class="info">
+                <h2>Members</h2>
+                <ul>
+                    <li>Emma Philips</li>
+                    <li>Christina Atrusz</li>
+                    <li>Sydney Phan</li>
+                    <li>Sandra Opakunle</li>
+                </ul>
+            </div>     
+        </div>
+        <span>Copyright © 2024 CINAMATE</span>
+    </footer>
+    <script src="ScriptCM.js"></script>
+</html>

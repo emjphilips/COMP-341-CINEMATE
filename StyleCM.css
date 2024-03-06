@@ -1,0 +1,314 @@
+h1 {
+    text-align : center; 
+}
+header { 
+    display : grid; 
+    gap: 50 px, 50 px; 
+    border: 5 px solid black;
+    flex-direction: row;
+    text-align: center;
+}
+.Streamplat{
+    margin: 50px;
+}
+.stream {
+    margin: 50px;
+}
+
+body{
+    font-family: 'Urbanist', sans-serif;
+    margin: 0%;
+}
+.wrapper{
+    width: auto;
+}
+.platform {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .platform.selected {
+    background-color: #eee;
+}
+
+.rectangle-container {
+    display: flex; /* Arrange rectangles horizontally */
+    justify-content: space-between; /* Distribute evenly with space between */
+  }
+
+  .rectangle-container1 {
+    display: flex; /* Arrange rectangles horizontally */
+    justify-content: center; /* Distribute evenly with space between */
+
+    .poster {
+        margin-right: 20px;
+    }
+  }
+  
+  .rectangle {
+    width: 100px; /* Adjust width as needed */
+    height: 50px; /* Adjust height as needed */
+    background-color: #ccc;
+    margin: 10px; /* Add space between rectangles */
+  }
+.movie-container{
+    margin: 50px;
+}
+.video-container {
+    position: relative; /* Enable positioning for controls (optional) */
+    width: 640px; /* Adjust width as needed */
+    height: 360px; /* Adjust height as needed */
+    background-color: #000; /* Optional background color for non-black videos */
+  }
+  .rectangle-container2 {
+    display: flex;
+    flex-direction: column; /* Stack rectangles vertically */
+    justify-content: space-between; /* Distribute evenly with space between */
+    width: 200px; /* Adjust width as needed */
+    height: 100px; /* Adjust height as needed */
+    background-color: #eee;
+    margin: 0 auto; /* Center the container horizontally */
+    padding: 10px;
+  }
+  
+  .rectangle2 {
+    width: 100%; /* Match container width */
+    height: 20px; /* Set height for each rectangle */
+    background-color: #ccc;
+    margin: 5px 0; /* Add space between rectangles */
+  }
+  
+  /* Styles for the modal box */
+  #modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.5s ease-in-out; /* Smooth fade in/out effect */
+  }
+  
+  #modal.visible {
+    opacity: 1; /* Show the modal on button click */
+  }
+  
+  /* Styles for buttons */
+  button {
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  #close-modal {
+    margin-top: 10px;
+  } 
+  .video {
+    width: 100%; 
+    height: 100%;
+    margin-right: 50px;
+  }
+footer{
+    margin: 0;
+    border-top: 2px black solid;
+    font-family: 'Urbanist', sans-serif;
+}
+.contact{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+.contact h2{
+    padding-left: 0;
+    text-decoration: underline;
+}
+.info{
+    font-size: 8px;
+    margin: 5px;
+}
+.info ul{
+    list-style: none;
+    padding-left: 0;
+}
+
+/*media queries*/
+@media screen and (min-width: 320px) and (max-width: 479px){
+    body{
+        font-size: 10px; 
+    }
+    footer{
+        margin: 20px;
+    }
+    .artists img {
+        height: 230px;
+        width: 350px;
+        height: 180px;
+        width: 300px; 
+    }
+    #interactiveStreetView{
+        height: 200px;
+        width: 100%;
+        margin-bottom: 20px; 
+    }
+    #mapWMarker{
+        height: 200px;
+        width: 100%;
+    }
+}
+
+/*Tablets*/
+@media screen and (min-width: 480px) and (max-width: 1023px){
+    .title{
+        font-size: 50px;
+    }
+    .slideview img{
+        height: 150px;
+        width: 150px;
+        margin: 10px 0;
+    }
+    .img-container img{
+        height: 35rem;
+        width: 36rem;
+    }
+    .image-slider-wrapper{
+        max-width: 35em;
+    }
+    .scroll-wrapper{
+        max-height: 35rem;
+    }
+    footer{
+        margin: 50px;
+    }
+    .contact h2{
+        padding-left: 40px;
+    }
+    .info{
+        font-size: 12px;
+    }
+    .info ul{
+        padding-left: 40px;
+    }
+    .contact img{
+        width: 150px;
+    }
+    .artists img{
+        height: 230px;
+        width: 350px;
+    }
+    #interactiveStreetView{
+        height: 200px;
+        width: 100%;
+        margin-bottom: 20px; 
+    }
+    #mapWMarker{
+        height: 200px;
+        width: 100%;
+    }
+
+}
+/*Desktops*/
+@media screen and (min-width: 1024px) and (max-width: 1440px) {
+    .title{
+        font-size: 50px;
+    }
+    .slideview img{
+        height: 200px;
+        width: 200px;
+    }
+    .img-container img{
+        height: 45rem;
+        width: 50rem;
+    }
+    .scroll-wrapper{
+        max-height: 45rem;
+    }
+    .image-slider-wrapper{
+        max-width: 50em;
+    }
+    .scroll-wrapper{
+        margin: 0;
+    }
+    footer{
+        margin: 50px;
+    }
+    .contact h2{
+        padding-left: 40;
+    }
+    .info{
+        font-size: 15px;
+        margin: 10px;
+    }
+    .contact img{
+        width: 150px;
+    }
+    .artists img{
+        height: 230px;
+        width: 350px;
+    }
+    #interactiveStreetView{
+        height: 300px;
+        width: 50%;
+    }
+    #mapWMarker{
+        height: 300px;
+        width: 50%;
+    }
+}
+
+/*Large Desktops*/
+@media screen and (min-width: 1441px) {
+    body{
+        font-size: 20px;
+    }
+    .title{
+        font-size: 50px;
+    }
+    .slideview img{
+        height: 250px;
+        width: 250px;
+    }
+    .img-container img{
+        height: 55rem;
+        width: 60rem;
+    }
+    .scroll-wrapper{
+        max-height: 55rem;
+    }
+    .image-slider-wrapper{
+        max-width: 70em;
+    }
+    footer{
+        margin: 50px;
+    }
+    .contact h2{
+        padding-left: 0;
+    }
+    .info{
+        font-size: 25px;
+        margin: 20px;
+    }
+    .contact img{
+        width: 200px;
+    }
+    .artists img{
+        height: 230px;
+        width: 350px;
+    }
+    #interactiveStreetView{
+        height: 700px;
+        width: 50%;
+    }
+    #mapWMarker{
+        height: 700px;
+        width: 50%;
+    }
+}
