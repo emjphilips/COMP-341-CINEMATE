@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Seymour+One&display=swap" rel="stylesheet">
+		<meta charset="UTF-8">
+		<style>
+			.seymour-one-regular {
+				font-family: "Seymour One", sans-serif;
+				font-weight: 400;
+				font-style: normal;
+			}
+
+			html{
+			background: #110829;
+			font-family: "Seymour One", sans-serif;
+		
+			}
+			a{
+			color: white;
+			font-style: normal;
+			text-decoration: none;
+			
+			}
+			.HBO{
+				color: white;
+				text-align: center; 
+	
+				
+			}
+			.NETFLIX{
+				color: white;
+				text-align: center; 
+				
+			}
+			.FRIENDS{
+				color: white;
+				text-align: center; 
+				
+			}
+			.DISNEY{
+				color: white;
+				text-align: center; 
+				
+			}
+			div.scroll-container {
+				overflow: auto;
+				white-space: nowrap;
+				padding: 10px;
+			}
+			
+			div.scroll-container img {
+				padding: 10px;
+				width: 200px; 
+				height: 300px;
+				border-radius: 10px;
+				box-shadow : 0 0 20px rgba(255, 255, 255, 0.7);
+			}
+			
+			.topnav {
+				padding: inherit;
+				padding-bottom: 10px;
+			}
+			
+			/* Style the links inside the navigation bar */
+			.topnav a {
+				color: #f2f2f2;
+				padding: 20px 20px;
+				font-size: 17px;
+			}
+			
+			/* Change the color of links on hover */
+			.topnav a:hover {
+				background-color: #ddd;
+				color: black;
+			}
+	
+			.head .topnav{
+				text-align: -webkit-right; 
+				padding-bottom: 10px;
+				vertical-align: middle;
+			}
+			.head{
+				box-shadow : 0 0 20px rgba(255, 255, 255, 0.7);
+		
+			}
+		</style>
+	</head>
+	<body>
+		<div class = "head">
+		<img src="logo.png" alt="cinemate" width="65px" height="65px">
+		<div class = "topnav">
+			<a href="max.com">HBO</a>
+			<a href="netflix.com">Netflix</a>
+			<a href="disneyplus.com">Disney+</a>
+			<a href ="amazon.com">Prime Video</a>
+			<a href="max.com">Hulu</a>
+			<a href="#extra">...</a>
+			<a href="#messages">O</a>
+			<a href="#account">O</a>
+		</div>
+		</div>
+	
+		
+		<div class="container">
+			<div class="HBO">
+				<h2>Popular on HBO</h2>
+				<div class="scroll-container">
+					<img src="hbo1.png"> 
+					<img src="hbo2.png">
+					<img src="hbo3.png">
+					<img src="hbo4.png">
+					<img src="hbo5.png">
+				</div>
+			</div>
+			
+			<div class="NETFLIX">
+				<h2>Popular on Netflix</h2>
+				<div class="scroll-container">
+					<img src="netflix1.png">
+					<img src="netflix2.png">
+					<img src="netflix3.png">
+					<img src="netflix4.png">
+					<img src="netflix5.png">
+				</div>
+			</div>
+			<div class="DISNEY">
+				<h2>Popular on Disney+</h2>
+				<div class="scroll-container">
+					<img src="disney1.png">
+					<img src="disney2.png">
+					<img src="disney3.png">
+					<img src="disney4.png">
+					<img src="disney5.png">
+				</div>
+			</div>
+			<div class="FRIENDS">
+				<h2>Recommended by Friends</h2>
+				<div class="scroll-container">
+					<img src="friends1.png">
+					<img src="friends2.png">
+					<img src="friends3.png">
+					<img src="friends4.png">
+		
+				</div>
+			</div>
+		</div>
+		
+		<script>
+			const carousels = document.querySelectorAll('.carousel-images');
+			
+			function showImage(carouselIndex, imageIndex) {
+				const images = carousels[carouselIndex].querySelectorAll('.carousel-image');
+				images.forEach((image, i) => {
+					if (i === imageIndex) {
+						image.style.display = 'block';
+					} else {
+						image.style.display = 'none';
+					}
+				});
+			}
+			
+			function nextImage(carouselIndex) {
+				const images = carousels[carouselIndex].querySelectorAll('.carousel-image');
+				let currentIndex = Array.from(images).findIndex(image => image.style.display === 'block');
+				currentIndex++;
+				if (currentIndex >= images.length) {
+					currentIndex = 0;
+				}
+				showImage(carouselIndex, currentIndex);
+			}
+			
+			function prevImage(carouselIndex) {
+				const images = carousels[carouselIndex].querySelectorAll('.carousel-image');
+				let currentIndex = Array.from(images).findIndex(image => image.style.display === 'block');
+				currentIndex--;
+				if (currentIndex < 0) {
+					currentIndex = images.length - 1;
+				}
+				showImage(carouselIndex, currentIndex);
+			}
+			
+			// Show the first image initially for each carousel
+			carousels.forEach((carousel, index) => {
+				showImage(index, 0);
+			});
+		</script>
+		
+	</body>
+</html>
