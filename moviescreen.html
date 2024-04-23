@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Seymour+One&display=swap" rel="stylesheet">
+		
+		<style>
+			.badge{
+				padding: 5px 15px;
+				border-radius: 75%;
+			}
+			* {box-sizing: border-box;}
+			
+			button:hover {
+				cursor: pointer;
+				opacity: 0.9;
+				opacity:1;
+			}
+			
+			.cancelbtn {
+				background-color: #b30008;
+			}
+			.sentbtn{
+				background-color: #ccc;
+			}
+			.cancelbtn, .sentbtn {
+				float:left;
+				width: 50%;
+				height: 50%;
+			}
+			.notification-form {
+				position: fixed;
+				z-index: 1; 
+				left: 0;
+				top: 0;
+				overflow: auto;
+			}
+			.notification-form-content {
+				background-color: #ececec;
+				margin: 15% auto 15% auto; 
+				border: 3px solid #888;
+				height: 50%;
+				width: 50%;
+				text-align: center;
+				padding-right: 10px;
+			}
+			.referringtoafriend {
+				display: none;
+				position: fixed;
+				z-index: 1; 
+				left: 0;
+				top: 0;
+				overflow: auto;
+			}
+			.referringtoafriend-content {
+				background-color: #ececec;
+				margin: 5% auto 15% auto; 
+				border: 3px solid #888;
+				height: 45%;
+				width: 45%;
+			}
+			
+			.sendingtofriend {
+				display: none;
+				position: fixed;
+				z-index: 1; 
+				left: 0;
+				top: 0;
+				overflow: auto;
+			}
+			.sendingtofriend-content {
+				background-color: #ececec;
+				margin: 5% auto 15% auto; 
+				border: 3px solid #888;
+				height: 45%;
+				width: 45%;
+			}
+			
+			hr {
+				border: 3px solid #c5c6c7;
+				margin-bottom: 25px;
+			}
+			
+			.close {
+				position: absolute;
+				right: 35px;
+				top: 15px;
+				font-size: 40px;
+				font-weight: bold;
+				color: #b30008;
+			}
+			
+			.clearfix::after {
+				content: "";
+				clear: both;
+				display: table;
+			}
+			.container {
+				display: block;
+				position: relative;
+				padding-left: 35px;
+				margin-bottom: 12px;
+				cursor: pointer;
+				font-size: 22px;
+				color: black; 
+			}
+			
+			.container input {
+				position: absolute;
+				opacity: 0;
+				cursor: pointer;
+				height: 0;
+				width: 0;
+			}
+			
+			.checkmark {
+				position: absolute;
+				top: 0;
+				left: 0;
+				height: 25px;
+				width: 25px;
+				border-radius: 50%;
+			}
+			
+			.container:hover input ~ .checkmark {
+				background-color: #ccc;
+			}
+			
+			.container input:checked ~ .checkmark {
+				background-color: #603fef;
+			}
+			
+			.checkmark:after {
+				content: "";
+				position: absolute;
+				display: none;
+			}
+			
+			.container input:checked ~ .checkmark:after {
+				display: block;
+			}
+			
+			.container .checkmark:after {
+				top: 9px;
+				left: 9px;
+				width: 8px;
+				height: 8px;
+				border-radius: 50%;
+				background: white;
+			}
+			
+			.seymour-one-regular {
+				font-family: "Seymour One", sans-serif;
+				font-weight: 400;
+				font-style: normal;
+			}
+			html{
+				background: radial-gradient(65% 55%, #ebce38, #301934);
+			font-family: "Seymour One", sans-serif;
+			color: white;
+		
+			}
+			a{
+			color: white;
+			font-style: normal;
+			text-decoration: none;
+			
+			}
+			.HBO{
+				color: white;
+				text-align: center; 
+	
+				
+			}
+			.NETFLIX{
+				color: white;
+				text-align: center; 
+				
+			}
+			.FRIENDS{
+				color: white;
+				text-align: center; 
+				
+			}
+			.DISNEY{
+				color: white;
+				text-align: center; 
+				
+			}
+			div.scroll-container {
+				overflow: auto;
+				white-space: nowrap;
+				padding: 10px;
+			}
+			
+			div.scroll-container img {
+				padding: 10px;
+				width: 200px; 
+				height: 300px;
+				border-radius: 10px;
+				box-shadow : 0 0 20px rgba(255, 255, 255, 0.7);
+			}
+			
+			.topnav {
+				display: flex;
+				align-items: center;
+			}
+			
+			.topnav a {
+				color: #f2f2f2;
+				padding: 10px 20px;
+				font-size: 17px;
+				text-decoration: none;
+			}
+			
+			.topnav a:hover {
+				background-color: #ddd;
+				color: black;
+			}
+			.topnav img{
+				margin-left: auto;
+			}
+	
+			.head{
+				box-shadow : 0 0 20px rgba(255, 255, 255, 0.7);
+				display: flex;
+					align-items: center; 
+					justify-content: space-between; 
+					padding: 10px;
+		
+			}
+			.topnav a.emoji {
+				font-size: 25px;
+			}
+			.topnav a.bellemoji{
+				font-size: 25px;
+			}
+
+			
+			.MovieDetails{
+				color: #f2f2f2;
+				font-size: 17px;
+				text-decoration: none;
+				display: flex;
+				justify-content: space-between; 
+				margin: auto;
+			}
+		
+			
+			button{ 
+				font-family: "Seymour One", sans-serif; 
+				background: none; 
+				color: white;
+				font-size: 25px;
+				align-items: center;
+				padding: 15px;
+				border: 2px white solid;
+				
+			} 
+	
+		</style>
+	</head>
+	<body>
+		<div class = "head">
+		<a href="cinemateHP.html"><img src="logo.png" alt="cinemate" width="65px" height="65px"></a>
+		<div class = "topnav">
+			<a href="max.com">Max</a>
+			<a href="netflix.com">Netflix</a>
+			<a href="disneyplus.com">Disney+</a>
+			<a href ="amazon.com">Prime Video</a>
+			<a href="max.com">Hulu</a>
+			<a href="#extra" class="emoji">+</a>
+			
+			<a href="#notifications" class="bellemoji">🔔</a>
+			<a href="#profile" class="emoji">☺︎</a>
+		</div>
+		</div>
+	<div class = "MovieTrailer">
+		<br><br>
+			<iframe width="100%" height="500" src="https://www.youtube.com/embed/bnU2dWMGpMA?si=6e3X1i5-K0gzc9Oj&rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+		
+	</div> 
+<br><br>
+	<div class = "MovieDetails"> 
+		<h1>Sabrina (1954)</h1>
+	
+		<button onclick="document.getElementById('WatchParty').style.display='block'">Invite</button>
+		
+		<div id="WatchParty" class="sendingtofriend">
+			<span onclick="document.getElementById('WatchParty').style.display='none'" class="close">&times;</span>
+			<form class="sendingtofriend-content">
+				<div class="container">
+					<h1>Who do you want to watch with?</h1>
+					<hr>
+					<label class="container">Sydney 
+						<input type="checkbox" checked="checked">
+						<span class="checkmark"></span>
+					</label>
+					<hr>
+					<label class="container">Christina
+						<input type="checkbox">
+						<span class="checkmark"></span>
+					</label>
+					<hr>
+					<label class="container">Sandra
+						<input type="checkbox">
+						<span class="checkmark"></span>
+					</label>
+					<hr>
+					<label class="container">Hayward
+						<input type="checkbox">
+						<span class="checkmark"></span>
+					</label>
+					<hr>
+					<div class="clearfix">
+						<button type="button" onclick="closeWatchParty()" class="cancelbtn">Cancel</button>
+						<button type="submit" class="sentbtn" onclick="addBadgeToNotifications(); closeWatchParty()">Invite</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	
+		
+		<script>
+			function addBadgeToNotifications() {
+				var notificationsLink = document.querySelector('.topnav a[href="#notifications"]');
+				var badge = notificationsLink.querySelector('.badge');
+				if (!badge) {
+					badge = document.createElement('span');
+					badge.classList.add('badge');
+					badge.innerText = '1';
+					badge.setAttribute('id', 'notificationBadge');
+					badge.addEventListener('click', function() {
+					
+					});
+					notificationsLink.appendChild(badge);
+				} else {
+					var count = parseInt(badge.innerText);
+					badge.innerText = count + 1;
+				}
+			}
+		
+			function closeWatchParty() {
+				var closeWatchParty = document.getElementById('WatchParty');
+				closeWatchParty.style.display = 'none';
+			}
+			
+			document.addEventListener('DOMContentLoaded', function() {
+				var notificationEmoji = document.querySelector('.bellemoji');
+				notificationEmoji.addEventListener('click', function(event) {
+					event.preventDefault(); 
+					var badge = document.querySelector('.badge');
+					if (badge) {
+						openNotificationForm();
+					}
+				});
+			});
+			
+			function closeInvite() {
+				var closeInvite = document.getElementById('notificationForm');
+				closeInvite.style.display = 'none';
+			}
+			
+			function openNotificationForm() {
+				var formHTML = `
+		<div id="notificationForm" class="notification-form">
+			<span class="close" onclick="closeNotificationForm()">&times;</span>
+			<form class="notification-form-content">
+				<div class="container">
+					<h1>Emma has invited you to watch Sabrina</h1>
+					<hr>
+					<div class="clearfix">
+						<a href="moviesharingscreen.html"><button type="button" onclick="closeInvite()" class="sentbtn">Join</button></a>
+						<button type="submit" onclick="closeInvite()" class="cancelbtn">Refuse Invitation</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	`;
+				document.body.insertAdjacentHTML('beforeend', formHTML);
+			}
+		</script>		
+		
+		
+		<button onclick="document.getElementById('Referring').style.display='block'"><img src="Share button.png" width="25px"> </button> 
+		
+		<div id="Referring" class="referringtoafriend">
+			<span onclick="document.getElementById('Referring').style.display='none'" class="close">&times;</span>
+			<form class="referringtoafriend-content">
+				<div class="container">
+					<h1>Want to refer this movie to a friend?</h1>
+					<hr>
+					<label class="container">Sydney 
+						<input type="checkbox" checked="checked">
+						<span class="checkmark"></span>
+					</label>
+					<hr>
+					<label class="container">Christina
+						<input type="checkbox">
+						<span class="checkmark"></span>
+					</label>
+					<hr>
+					<label class="container">Sandra
+						<input type="checkbox">
+						<span class="checkmark"></span>
+					</label>
+					<hr>
+					<label class="container">Hayward
+						<input type="checkbox">
+						<span class="checkmark"></span>
+					</label>
+					<hr>
+					<div class="clearfix">
+						<button type="button" onclick="document.getElementById('Referring').style.display='none'" class="cancelbtn">Cancel</button>
+						<button type="submit" class="sentbtn" onclick="closeRefer()">Refer</button>
+						
+					</div>
+				</div>
+			</form>
+		</div>
+	
+		
+		<script>
+			var referringtoafriend = document.getElementById('Referring');
+			
+			window.onclick = function(event) {
+				if (event.target == referringtoafriend) {
+					referringtoafriend.style.display = "none";
+				}
+			}
+			
+			function closeRefer() {
+				var Referring = document.getElementById('Referring');
+				Referring.style.display = "none";
+			}
+		</script>
+	</div>
+
+
+			<h3>IMDb 7.6 <br> 1 hr 53 min</h3>
+			<h3>Starring : Audrey Hepburn, Humphrey Bogart, William Holden</h3>
+			<p>Chauffeur's daughter Sabrina (Audrey Hepburn) returns home from two years in Paris a beautiful young woman, and immediately catches the attention of David (William Holden), the playboy son of her father's rich employers. David woos and wins Sabrina, who has always been in love with him, however their romance is threatened by David's serious older brother, Linus (Humphrey Bogart), who runs the family business and is relying on David to marry an heiress in order for a crucial merger to take place.</p>
+		
+		<br>
+		
+		<div class = "MoviesLikeThis">
+				<h2>Movies Similar</h2>
+				<div class="scroll-container">
+					<img src="friends4.png">
+					<img src="disney3.png">
+					<img src="morelike.jpeg">
+					<img src="morelike2.jpg">
+					<img src="disney4.png">
+				</div>
+		</div>
+		
+</body>
+</html>
